@@ -9,6 +9,16 @@ A full-featured networked multiplayer **Battleship** strategy game built in Java
 
 ---
 
+## 🎮 Dual Radar Grid System
+
+The game coordinates real-time state synchronization across a dual $10 \times 10$ naval grid:
+
+![Battleship Radar Interface Preview](assets/battleship_radar_preview.png)
+
+*Dual-grid battlefield architecture: Friendly fleet deployment zone (left) with active damage monitoring, paired with the enemy targeting radar sector (right) displaying confirmed hits and coordinate misses.*
+
+---
+
 ## 📌 Architecture & Features
 
 ### 1. Multi-Threaded TCP Server (`server/`)
@@ -55,14 +65,12 @@ Start the central game server to accept socket connections:
 ```bash
 ./gradlew runServer
 ```
-*(Or execute `server.Server` directly from your IDE).*
 
 ### 4. Launch Client Players
 In separate terminal windows or machines:
 ```bash
 ./gradlew runClient
 ```
-*(Or execute `Client.Client` to open the Swing GUI).*
 
 ---
 
@@ -80,7 +88,8 @@ In separate terminal windows or machines:
 │       ├── Server.java             # Socket listener & thread dispatcher
 │       ├── ServerSideConnection.java # Client session coordinator
 │       └── logic/                  # Turn validation, collision detection & win logic
-├── build.gradle                    # Gradle dependency & task definitions
+├── assets/                         # Visual game diagrams & radar interface preview
+├── build.gradle                    # Gradle build script with runServer & runClient tasks
 ├── gradlew / gradlew.bat           # Cross-platform Gradle wrappers
 └── .gitignore                      # Clean Git ignore rules (build/, .gradle/, .idea/)
 ```

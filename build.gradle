@@ -26,3 +26,17 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task runServer(type: JavaExec) {
+    group = "Execution"
+    description = "Runs the Battleship game server"
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'server.Server'
+}
+
+task runClient(type: JavaExec) {
+    group = "Execution"
+    description = "Runs the Battleship game client GUI"
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'Client.Client'
+}
